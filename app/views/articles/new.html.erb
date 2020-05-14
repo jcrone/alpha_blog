@@ -1,5 +1,15 @@
 <h1>Crate a new Article</h1>
 
+<% if @article.errors.any? %>
+ <h2>You have the following errors</h2>  
+     <ul>
+       <% @article.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     </ul>
+  <% end %>
+<% end %>
+
+
 <%= form_with scope: :article, url: articles_path, local: true do |f| %>
   <p>
     <%= f.label :title %><br>
@@ -14,5 +24,4 @@
   <p>
     <%= f.submit %>
   </p>
-
 <% end %>

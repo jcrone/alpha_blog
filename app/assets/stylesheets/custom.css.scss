@@ -44,3 +44,11 @@ body {
 #sticky-footer {
   flex-shrink: none;
 }
+
+.text-break {
+  // for inline elements
+  word-break: break-all !important; // Firefox, > Edge 18
+  word-break: break-word !important; // IE, < Edge 18, Chrome
+  // for block elements
+  overflow-wrap: break-word !important;
+}

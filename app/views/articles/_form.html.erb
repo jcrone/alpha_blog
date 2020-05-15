@@ -1,25 +1,29 @@
-<% if @article.errors.any? %>
- <h2>You have the following errors</h2>
-     <ul>
-       <% @article.errors.full_messages.each do |msg| %>
-       <li><%= msg %></li>
-     </ul>
+
+<div class="container">
+
+  <%= render 'shared/errors' %>
+
+
+
+  <%= form_with(model: @article, class: "shadow p-3 mb-3 bg-lightgrey rounded", local: true) do |f| %>
+    <div class="form-group">
+      <%= f.label :title, class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Enter Title" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description,class: "col-2 col-form-label" %>
+      <div class="col-10">
+        <%= f.text_area :description, rows:10, class: "form-control shadow rounded" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-10">
+      <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
   <% end %>
-<% end %>
+  <%= link_to 'Cancel return to articles', articles_path  %>
 
-
-<%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br>
-   <%= f.text_area :description %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+</div>

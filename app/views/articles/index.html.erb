@@ -20,7 +20,7 @@
             <br>
           </div>
           <div class="card-footer text-muted">
-            <small>Created by <%= article.user.username if @article.user %> <%= time_ago_in_words(article.created_at) %> ago
+            <small>Created by <%= article.user.username %> <%= time_ago_in_words(article.created_at) %> ago
             and edited ago <%= time_ago_in_words(article.updated_at) %></small>
           </div>
         </div>

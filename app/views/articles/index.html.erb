@@ -16,11 +16,11 @@
 
             <%= link_to 'View', article_path(article), class: "btn btn-success" %>
             <%= link_to 'Edit', edit_article_path(article), class:"btn btn-info" %>
-            <%= link_to 'Delete', article_path(article), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %> 
+            <%= link_to 'Delete', article_path(article), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %>
             <br>
           </div>
           <div class="card-footer text-muted">
-            <small>Created <%= time_ago_in_words(article.created_at) %> ago
+            <small>Created by <%= article.user.username if @article.user %> <%= time_ago_in_words(article.created_at) %> ago
             and edited ago <%= time_ago_in_words(article.updated_at) %></small>
           </div>
         </div>

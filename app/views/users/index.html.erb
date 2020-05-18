@@ -1,0 +1,26 @@
+<div class="container">
+<h1 class="mt-4">Users</h1>
+</div>
+
+<div class="container">
+  <div class="row">
+      <% @users.each do |user| %>
+    <div class="col-sm-6 mt-4">
+      <div class="shadow mb-5 bg-white rounded">
+        <div class="card">
+           <div class="card-body">
+            <h5 class="card-title"><%= user.username %></h5>
+            <p class="card-text text-break"><%= gravatar_for user %></p>
+            <%= link_to 'View', user_path(user), class: "btn btn-success" %>
+            <%= link_to 'Edit', edit_user_path(user), class:"btn btn-info" %>
+            <br>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(user.created_at) %> ago</small>
+          </div>
+        </div>
+     </div>
+    </div>
+   <% end %>
+  </div>
+</div>

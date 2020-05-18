@@ -5,11 +5,14 @@
 
 <div class="container mt-4">
   <div class="card bg-light mb-3" >
-  <div class="card-header">Created <%= time_ago_in_words(@article.created_at) %> ago
+  <div class="card-header"><h2><%= link_to gravatar_for(@article.user), user_path(@article.user) %>  <%= @article.user.username %></h2>  Created <%= time_ago_in_words(@article.created_at) %> ago
   </div>
   <div class="card-body">
     <h5 class="card-title text-uppercase" ><%= @article.title %></h5>
     <p class="card-text"><%= @article.description %></p>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Updated <%= time_ago_in_words(@article.updated_at) %> ago
   </div>
   </div>
 

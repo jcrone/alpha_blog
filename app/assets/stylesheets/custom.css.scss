@@ -6,13 +6,26 @@
   background-color: black !important;
 }
 
+.navbar-toggler-icon{
+  background-color: lightgrey !important;
+}
+
+
+
 .nav-link{
   color: white !important;
 }
 
-#logo {
+#logoNav {
   float: left;
   font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;

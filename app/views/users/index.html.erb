@@ -1,7 +1,7 @@
 <div class="container">
 <h1 class="mt-4">Users</h1>
 </div>
-
+<%= render 'shared/pagination' %>
 <div class="container">
   <div class="row">
       <% @users.each do |user| %>
@@ -24,3 +24,4 @@
    <% end %>
   </div>
 </div>
+<%= render 'shared/pagination' %>

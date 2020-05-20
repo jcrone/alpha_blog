@@ -10,20 +10,36 @@
         <%= link_to (render 'icons/homeicon' ), users_path, class: "nav-link" %>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Articles
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to "View Articles", articles_path, class: "dropdown-item" %>
-           <%= link_to "Create Article", new_article_path, class: "dropdown-item" %>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <% if logged_in? == false%>
+      <li class="nav-item active">
+        <%= link_to "Articles", articles_path, class: "nav-link" %>
       </li>
+      <% end %>
+
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Articles
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View Articles", articles_path, class: "dropdown-item" %>
+              <%= link_to "Create Article", new_article_path, class: "dropdown-item" %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile [<%= current_user.username %>]
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
+
       <% if logged_in? %>
       <li class="nav-item">
-        <%= link_to current_user.username, users_path , class: "nav-link" %>
+        <%= link_to current_user.username, user_path(current_user) , class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "Logout", logout_path, class: "nav-link", method: :delete %>

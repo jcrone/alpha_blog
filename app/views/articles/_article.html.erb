@@ -9,8 +9,10 @@
             <p class="card-text text-break"><%= simple_format(article.description) %></p>
 
             <%= link_to 'View', article_path(article), class: "btn btn-success" %>
-            <%= link_to 'Edit', edit_article_path(article), class:"btn btn-info" %>
-            <%= link_to 'Delete', article_path(article), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %>
+            <% if logged_in? && article.user == current_user %>
+              <%= link_to 'Edit', edit_article_path(article), class:"btn btn-info" %>
+              <%= link_to 'Delete', article_path(article), class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?"} %>
+            <% end %>
             <br>
           </div>
           <div class="card-footer text-muted">

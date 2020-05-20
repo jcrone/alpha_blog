@@ -10,7 +10,7 @@
         <%= link_to (render 'icons/homeicon' ), users_path, class: "nav-link" %>
       </li>
 
-      <% if logged_in? == false%>
+      <% if !logged_in? %>
       <li class="nav-item active">
         <%= link_to "Articles", articles_path, class: "nav-link" %>
       </li>

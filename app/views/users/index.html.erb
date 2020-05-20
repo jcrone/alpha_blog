@@ -12,7 +12,9 @@
             <h5 class="card-title"><%= user.username %></h5>
             <p class="card-text text-break"><%= gravatar_for user %></p>
             <%= link_to 'View', user_path(user), class: "btn btn-success" %>
-            <%= link_to 'Edit', edit_user_path(user), class:"btn btn-info" %>
+            <% if current_user == user %>
+              <%= link_to 'Edit', edit_user_path(user), class:"btn btn-info" %>
+            <% end %>
             <br>
           </div>
           <div class="card-footer text-muted">

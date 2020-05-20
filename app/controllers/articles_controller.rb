@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
  before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+ before_action :require_user, except: [:show, :index]
+ before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -19,7 +20,6 @@ class ArticlesController < ApplicationController
     if @article.save
       flash[:notice] = "Article was saved successfully"
       redirect_to article_path(@article)
-
     else
       render 'new'
     end
@@ -52,5 +52,7 @@ class ArticlesController < ApplicationController
  def article_params
   params.require(:article).permit(:title, :description)
  end
+
+
 
 end

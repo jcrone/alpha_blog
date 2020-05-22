@@ -18,10 +18,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def require_same_user
-    if current_user != @article.user
-      flash[:alert] = "You can only edit you own"
-      redirect_to @article
-    end
-  end
 end

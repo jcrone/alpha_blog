@@ -3,6 +3,6 @@
   <h1 class=" t-4">Article Listing page</h1>
   <p><%= link_to 'Create new Article', new_article_path %></p>
 </div>
-<%= render 'shared/pagination' %>
-<%= render 'article' %>
-<%= render 'shared/pagination' %>
+
+<%= render 'article', obj: @articles %>
+<%= render 'shared/pagination', obj: @articles %>

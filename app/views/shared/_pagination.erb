@@ -2,7 +2,7 @@
 
 <center><div class="apple_pagination text-align-center" >
     <div class="page_info">
-      <%= page_entries_info @articles %>
+      <%= page_entries_info obj %>
     </div>
-    <%= will_paginate @articles, :container => false %>
+    <%= will_paginate obj, :container => false %>
   </div></center>

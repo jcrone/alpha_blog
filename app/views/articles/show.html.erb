@@ -12,6 +12,9 @@
     <p class="card-text"><%= @article.description %></p>
   </div>
   <div class="card-footer text-muted">
+    <% if @article.categories.any? %>
+      <p>Categories: <%= render @article.categories %></p>
+    <% end %>
     <small>Updated <%= time_ago_in_words(@article.updated_at) %> ago
   </div>
   </div>

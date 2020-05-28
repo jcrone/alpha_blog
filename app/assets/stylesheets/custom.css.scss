@@ -66,7 +66,13 @@ body {
   overflow-wrap: break-word !important;
 }
 
-
+.badge {
+  background-color: darkgrey;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+  color: white !important;
+}
 /*pagination Styling 3 total options 1 of 3*/
 .digg_pagination {
   background: white;

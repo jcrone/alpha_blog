@@ -23,6 +23,20 @@ before_action :require_admin, except: [:index, :show]
       render 'new'
     end
   end
+  
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      flash[:success] = "Category name was updated"
+      redirect_to @category
+    else
+      render "edit"
+    end
+  end
 
   private
 
@@ -36,5 +50,6 @@ before_action :require_admin, except: [:index, :show]
       redirect_to categories_path
     end
   end
+
 
 end

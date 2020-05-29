@@ -8,9 +8,12 @@
  </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
+    
       <li class="nav-item active">
         <%= link_to (render 'icons/homeicon' ), users_path, class: "nav-link" %>
       </li>
+
 
       <% if !logged_in? %>
       <li class="nav-item active">
@@ -33,6 +36,7 @@
             Categories
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "All Categories", articles_path, class: "dropdown-item" %>
               <% @nav_categories.each do |category| %>
                 <%= link_to category.name , category_path(category), class: "dropdown-item" %>
               <% end %>

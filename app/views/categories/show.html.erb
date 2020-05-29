@@ -1,8 +1,9 @@
 <div class="container">
 <h1 class="mt-4">Category: <%= @category.name %> </h1>
 </div>
-
-
+<div class="container">
+<span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+</div>
 
 <%= render 'articles/article', obj: @category_articles %>
 <%= render 'shared/pagination', obj: @category_articles %>
